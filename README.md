@@ -1,23 +1,27 @@
 ## Table of contents
 
+Before we go forward, I want you to have a brief idea of DOM & top-level view of the DOM tree as the further discussed topic is correlated. You can take the reference here [DOM](https://www.w3schools.com/js/js_htmldom.asp).
+
 ## Introducing DOM Node
 
-Every tiny piece of code which is present in the document is represented as a Node object in the DOM Tree. It might be text, comments, space, HTML tags, or elements.
+Every tiny piece of code which is present in the document (HTML, XML) is represented as a Node object in the DOM Tree. It might be texts, comments, spaces, HTML tags, or elements.
 
 ## Node object
 
-The Node interface is an abstract base class meaning it can't be instantiated directly. Node inherits properties of EventTarget interface. All objects like Text, Comment, and Element use Node functionality by inheriting it.
+The Node [interface](https://medium.com/@ubale.vikas9/interface-in-oops-6eae3731c242) is an abstract base class meaning it can't be instantiated directly. Node inherits properties of EventTarget interface. All objects like Text, Comment, and Element use Node functionality by inheriting it.
 
 ```xml
 <!-- Paragraph demo -->
 <p>This is a paragraph tag</p>
 ```
 
-&lt;p&gt; tag is an object of HTMLParagraphTag which extends the HTMLElement interface which further extends the Element interface extending Node. 'This is a paragraph tag' is an object of the Text interface that extends Node. &lt;!-- Paragraph demo --&gt; is an object of the Comment interface inheriting Node. The below diagram illustrates how different kinds of DOM objects are inheriting from their parent.
+Here, &lt;p&gt; tag is an object of HTMLParagraphTag which extends the HTMLElement interface which further extends the Element interface extending Node. `'This is a paragraph tag'`is an object of the Text interface that extends Node. `<!-- Paragraph demo -->` is an object of the Comment interface inheriting the Node class. The below diagram illustrates how different kinds of DOM objects are inheriting from their parent.
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1672141710792/2ebf9a90-a041-4a5c-adb0-fff8bf64e195.png align="center")
 
-As you see, element, text, and comment objects are subclasses of the Node parent class. So, ultimately they all are Node objects.
+As you see, element, text, and comment objects are subclasses of the Node parent class as the direct object of the Node class can't be made. So, ultimately they all are Node objects.
+
+**Note:** These objects aren't created by the users manually, these are created & implemented by the browser internally.
 
 ### Instance properties/variable
 
@@ -38,13 +42,17 @@ Example demonstrating Node.textContent
 <p>This text will be changed.</p>
 ```
 
-Here &lt;p&gt; tag is a Node object as we have already discussed above. So, we can write
+Here &lt;p&gt; tag is a Node object as we've already discussed above. So, we can write
 
+```javascript
 document.getElementByTagName('p').textContent = "Text is changed";
+```
 
-Note: we cannot write p.textContent = "Text is changed";
+**Note:** we cannot write `p.textContent = 'Text is changed';`
 
 As &lt;p&gt; is an element node & there are certain ways to access every node.
+
+The result after the text content of the node is modified.
 
 ```xml
 <p>Text is changed</p>
@@ -80,17 +88,21 @@ E.g: &lt;p&gt;&lt;/p&gt;, &lt;div&gt;&lt;/div&gt;, &lt;span&gt;&lt;/span&gt;, et
 
 ### Text Node
 
-Text inside the element is represented as a text node, labeled as #text. Elements nested inside the text are not treated as text nodes instead they form element nodes with text nodes in them. Don't worry if didn't understand, it will be cleared after the pictorial demonstration. For the timing, just focus on the given below example.
+Text inside the element is represented as a text node, labeled as *#text*. Elements nested inside the text are not treated as text nodes instead they form element nodes with text nodes in them. Don't worry if you didn't understand, it will be cleared after the pictorial demonstration. For the timing, just focus on the given below example.
 
-E.g: &lt;p&gt;This is text inside paragraph tag&lt;/p&gt;
+E.g:
 
-"This is text inside paragraph tag" is a text node.
+```xml
+<p>This is text inside paragraph tag</p>
+```
+
+`'This is text inside paragraph tag'` is a text node.
 
 ### Comment Node
 
 Comments in the document form comment nodes.
 
-E.g: &lt;!-- Main --&gt;, &lt;!-- Testimonial section --&gt;, &lt;!-- about section --&gt;
+E.g: `<!-- Main -->, <!-- Testimonial section -->, <!-- about section -->`
 
 ### Document Node
 
@@ -114,7 +126,7 @@ Below is the code snippet with its corresponding node representation.
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1672235317613/1224219b-53b4-4480-a75f-54bfcaac1bb0.png align="center")
 
-Note:
+**Note:**
 
 * !DOCTYPE HTML is also one type of node.
     
@@ -125,4 +137,18 @@ Note:
 * The contents after the body closing tag &lt;/body&gt; are moved inside the body at the end.
     
 
-You might be wondering why are these many text nodes in the DOM tree. Let me clear you up.
+You might be wondering why are these many text nodes in the above DOM tree. Let me clear you up. Text nodes numbered 1, 3, 4, 5, 6, 9, and 11 represent newlines & the rest are straightforward text.
+
+Remember I told you elements nested inside the text don't form text nodes. See the dom view of the line shown below in the above diagram.
+
+```xml
+<div>This is div with <p>paragraph tag</p></div>
+```
+
+Also, the text node representing a newline after the HTML tag before the &lt;head&gt; tag is ignored. As you can see the first descendant of the HTML tag is the element node head, not a newline text node. You can play around with the code and analyze the DOM tree here [DOM Viewer](https://software.hixie.ch/utilities/js/live-dom-viewer/).
+
+## Conclusion
+
+That's all wrapped up. I know it's a bit difficult to grab these concepts at the first sight but once you are confident enough about these topics, it will be easier for you to do advanced DOM manipulation.
+
+Thank you for reading my blog. Let's connect on [GitHub](https://github.com/iprinceroyy) and [Twitter](https://www.twitter.com/prince_popups).
