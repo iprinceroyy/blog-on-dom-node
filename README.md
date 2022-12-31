@@ -122,7 +122,7 @@ Below is the code snippet with its corresponding node representation.
 </html>
 ```
 
-![](./livedom.svg)
+![](./dom.svg)
 
 **Note:**
 
