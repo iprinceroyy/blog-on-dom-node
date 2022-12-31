@@ -1,5 +1,7 @@
 # What is Node in the DOM Tree?
 
+Before we go forward, I want you to have a brief idea of DOM & top-level view of the DOM tree as the further discussed topic is correlated. You can take the reference here [DOM](https://www.w3schools.com/js/js_htmldom.asp).
+
 ## Table of contents 
 - [Introduction](#introducing-dom-node)
 - [Node object](#node-object)
@@ -11,8 +13,6 @@
   - [Comment Node](#comment-node)
   - [Document Node](#document-node)
 - [Conclusion](#conclusion)
-
-Before we go forward, I want you to have a brief idea of DOM & top-level view of the DOM tree as the further discussed topic is correlated. You can take the reference here [DOM](https://www.w3schools.com/js/js_htmldom.asp).
 
 ## Introducing DOM Node
 
