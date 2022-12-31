@@ -15,7 +15,7 @@ The Node [interface](https://medium.com/@ubale.vikas9/interface-in-oops-6eae3731
 
 Here, &lt;p&gt; tag is an object of HTMLParagraphTag which extends the HTMLElement interface which further extends the Element interface extending Node. `'This is a paragraph tag'`is an object of the Text interface that extends Node. `<!-- Paragraph demo -->` is an object of the Comment interface inheriting the Node class. The below diagram illustrates how different kinds of DOM objects are inheriting from their parent.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1672141710792/2ebf9a90-a041-4a5c-adb0-fff8bf64e195.png align="center")
+![](./nodediagram.png)
 
 As you see, element, text, and comment objects are subclasses of the Node parent class as the direct object of the Node class can't be made. So, ultimately they all are Node objects.
 
